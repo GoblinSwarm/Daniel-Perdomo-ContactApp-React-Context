@@ -9,7 +9,7 @@ import { Context } from "../store/appContext";
     4.- usar el store o actions
 */
 
-export const Navbar = () => {
+export const contactCard = () => {
     const { store, actions } = useContext(Context)
     const { user } = store
 
@@ -18,8 +18,10 @@ export const Navbar = () => {
     return (
             <div className="mb-3">
                 <label for="exampleFormControlInput1" class="form-label">Email address</label>
-                <input type="email" class="form-control" id="exampleFormControlInput1" placeholder="name@example.com" />
+                <input type="text" class="form-control" id="exampleFormControlInput1" placeholder="name@example.com" />
             </div>
     )
     
 };
+
+export default contactCard;
