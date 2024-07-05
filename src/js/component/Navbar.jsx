@@ -1,5 +1,5 @@
 import React from "react"
-import { NavLink } from "react-router-dom"
+import { NavLink , Link  } from "react-router-dom"
 
 
 const Navbar = () => {
@@ -16,7 +16,7 @@ const Navbar = () => {
                             <NavLink
                                 className={({ isActive }) => isActive ? "nav-link text-danger" : "nav-link"}
                                 aria-current="page"
-                                to="/">Home</NavLink>
+                                to="/Home">Home</NavLink>
                         </li>
                         <li className="nav-item">
                             <NavLink className={({ isActive }) => isActive ? "nav-link text-danger" : "nav-link"} to="/Contact">Contact</NavLink>

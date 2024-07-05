@@ -8,11 +8,11 @@ export const Contact = () => {
     const { store, actions } = useContext(Context)
     const { user } = store
 
-    console.log(user.name)
+    //console.log(user.name)
 
     return (
             <>
-
+                <h1>Welcome to Contact MF!</h1>
             </>
     )
     
