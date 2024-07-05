@@ -40,7 +40,10 @@ export const AddContact = () => {
                             <input type="text" class="form-control" id="addressForm" placeholder="Address" />    
                         </div>
                         <br />
-                        <button type="button" class="btn btn-primary col-12">Save</button>
+                        <NavLink to="/AddContact">
+                            {/*Aca es donde la magia del guardado ocurre*/}
+                            <button type="button" class="btn btn-primary col-12">Save</button>
+                        </NavLink>
                         <NavLink className={({ isActive }) => isActive ? "nav-link text-danger" : "nav-link"} to="/Contact">Go Back to Contacts</NavLink>
                     </div>
                 </div>
