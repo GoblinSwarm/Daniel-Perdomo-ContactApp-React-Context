@@ -10,8 +10,6 @@ export const Contact = () => {
     const { store, actions } = useContext(Context)
     const { user } = store
 
-    //console.log(user.name)
-
     return (
             <div>
                 <div className="container col-6 justify-content-center">

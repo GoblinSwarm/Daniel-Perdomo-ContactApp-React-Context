@@ -16,8 +16,6 @@ export const AddContact = () => {
     const { store, actions } = useContext(Context)
     const { user } = store
 
-    //console.log(user.name)
-
     return (
             <>
             <div className="row">
