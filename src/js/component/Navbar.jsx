@@ -6,7 +6,7 @@ const Navbar = () => {
     return (
         <nav className="navbar navbar-expand-md bg-body-tertiary navbar-dark bg-dark">
             <div className="container-fluid">
-                <a className="navbar-brand" href="#">Navbar</a>
+                <a className="navbar-brand" href="#"></a>
                 <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                     <span className="navbar-toggler-icon"></span>
                 </button>
@@ -19,7 +19,7 @@ const Navbar = () => {
                                 to="/">Home</NavLink>
                         </li>
                         <li className="nav-item">
-                            <NavLink className={({ isActive }) => isActive ? "nav-link text-danger" : "nav-link"} to="/contact">Contact</NavLink>
+                            <NavLink className={({ isActive }) => isActive ? "nav-link text-danger" : "nav-link"} to="/Contact">Contact</NavLink>
                         </li>
                         <li className="nav-item">
                             <NavLink className={({ isActive }) => isActive ? "nav-link text-danger" : "nav-link"} to="/AddContact">Add a New Contact</NavLink>

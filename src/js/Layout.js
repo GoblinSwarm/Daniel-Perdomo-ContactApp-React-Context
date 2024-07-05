@@ -16,7 +16,6 @@ const Layout = () => {
 	return (
 		<div>
 			<BrowserRouter>
-				<Home />
 				<Navbar />
 					<Routes>
 						<Route path="Home" element={<Home />} />
