@@ -12,7 +12,7 @@ import { NavLink} from "react-router-dom";
     4.- usar el store o actions
 */
 
-export const ContactCard = () => {
+export const AddContact = () => {
     const { store, actions } = useContext(Context)
     const { user } = store
 
@@ -46,4 +46,4 @@ export const ContactCard = () => {
     
 };
 
-export default AddContact;
+export default AddContact
