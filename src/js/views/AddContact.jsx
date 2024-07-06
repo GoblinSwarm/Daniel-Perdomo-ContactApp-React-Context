@@ -19,7 +19,7 @@ const initialContact = {
 }
 
 export const AddContact = () => {
-    //const { store, actions } = useContext(Context);
+    const { store, actions } = useContext(Context);
     const [ contact, setContact ] = useState(initialContact);
     
     const handleChange = ({target}) => {
@@ -29,9 +29,11 @@ export const AddContact = () => {
          })
     }
 
-    const handleSubmit = () => {
-        //Aca deberia llamar a la funcion de guardar el contacto en 
-
+    const handleSubmit = async () => {
+        // Call the action to save the contact
+        await actions.createContact(contact);
+        // Reset the form
+        setContact(initialContact);
     }
 
     return (
@@ -45,7 +47,7 @@ export const AddContact = () => {
                                 <input  className="form-control"
                                         type="text" 
                                         placeholder="Full Name" 
-                                        name="nameForm"
+                                        name="name"
                                         onChange={handleChange}/>
                             </div>
                             <div>
@@ -53,7 +55,7 @@ export const AddContact = () => {
                                 <input  className="form-control" 
                                         type="text" 
                                         placeholder="Enter Email" 
-                                        name="emailForm"
+                                        name="email"
                                         onChange={handleChange}/>    
                             </div>
                             <div>
@@ -61,7 +63,7 @@ export const AddContact = () => {
                                 <input  className="form-control" 
                                         type="text" 
                                         placeholder="Phone" 
-                                        name="phoneForm"
+                                        name="phone"
                                         onChange={handleChange} />    
                             </div>
                             <div>
@@ -69,14 +71,16 @@ export const AddContact = () => {
                                 <input  className="form-control" 
                                         type="text" 
                                         placeholder="Address" 
-                                        name="addressForm" 
+                                        name="address" 
                                         onChange={handleChange}/>    
                             </div>
                             <br />
+
                             <button type="button" className="btn btn-primary col-12" onClick={handleSubmit}>Save</button>
                             <NavLink className={({ isActive }) => isActive ? "nav-link text-danger" : "nav-link"} to="/Contact">Go Back to Contacts</NavLink>
-                            </form>
-                        </div>
+
+                        </form>
+                    </div>
                 </div>
             </>
     )

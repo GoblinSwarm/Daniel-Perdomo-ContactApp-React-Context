@@ -2,7 +2,6 @@ const getState = ({ getStore, getActions, setStore }) => {
 	return {
 		store: {
 			urlBase: 'https://playground.4geeks.com/contact/agendas',
-			//se crea asi, y se agrega en base a la lista que me tiran del otro lao'
 			contacts: []
 			// demo: [
 			// 	{
@@ -24,10 +23,13 @@ const getState = ({ getStore, getActions, setStore }) => {
 					let data = await response.json()
 
 					if(response.ok){
-						setStore(data)
+						setStore({
+							contacts: data.contacts
+						})
+
 					} else {
 						console.log("se crea la agenda")
-						createAgenda();
+						getActions().createAgenda();
 					}
 
 				} catch(error) {
@@ -45,14 +47,14 @@ const getState = ({ getStore, getActions, setStore }) => {
 					console.log(`Error en la creacion de la agenda: ${error}`)
 				}
 			},
-			createContact: async(contactData, id) => {
+			createContact: async() => {
 				try {
-					let response = await fetch(`{$getStore().urlBase}/Daniel_Perdomo/contacts${id}`, {
+					let response = await fetch(`{$getStore().urlBase}/Daniel_Perdomo/contacts`, {
 						method: "POST",
 						headers: {
 							'Content-Type': 'application/json'
 						},
-						body: JSON.stringify(contactData)
+						body: JSON.stringify()
 					})
 
 				if(response.ok) {
