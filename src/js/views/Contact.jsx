@@ -8,14 +8,22 @@ import person from "../../img/Specter.jpg";
 
 export const Contact = () => {
     const { store, actions } = useContext(Context)
-    const { user } = store
+    const { contact } = store
+
+
+    const initialContact = {
+        fullname: "",
+        email: "",
+        phone: "",
+        address: ""
+    }
 
     return (
             <div>
                 <div className="container col-6 justify-content-center">
                     <h1>Welcome to Contacts</h1>
                     <NavLink to="/AddContact">
-                        <button type="button" className="btn btn-primary col-2">Add another contact</button>
+                        <button type="button" className="btn btn-primary col-2">Add Contact</button>
                     </NavLink>
                     <div className="card mb-3 mt-3">
                         <div className="row g-0">
