@@ -2,7 +2,6 @@ import React, { useContext, useState } from "react";
 import { Context } from "../store/appContext";
 import { NavLink} from "react-router-dom";
 
-
 /*
     COMO USAR EL STORE
     1.- Importar el hook que manejara el store (useContext)
@@ -21,29 +20,32 @@ const initialContact = {
 export const AddContact = () => {
     const { store, actions } = useContext(Context);
     const [ contact, setContact ] = useState(initialContact);
-    
-    const handleChange = ({target}) => {
+
+    const handleChange = ({ target }) => {
         setContact({
             ...contact,
             [target.name]: target.value
          })
     }
 
-    const handleSubmit = async () => {
+    const handleSubmit = async (event) => {
         // Call the action to save the contact
-        await actions.createContact(contact);
-        // Reset the form
-        setContact(initialContact);
+        event.preventDefault();
+        await actions.createContact(contact);        
+        
+        
     }
+
+
 
     return (
             <>
             <div className="row">
                 <div className="mb-3 container col-6">
                     <h1>Add a new contact</h1>
-                        <form>
+                        <form onSubmit={handleSubmit}>
                             <div>
-                                <label for="fullNameForm" className="form-label">Full Name</label>
+                                <label htmlFor="fullNameForm" className="form-label">Full Name</label>
                                 <input  className="form-control"
                                         type="text" 
                                         placeholder="Full Name" 
@@ -51,7 +53,7 @@ export const AddContact = () => {
                                         onChange={handleChange}/>
                             </div>
                             <div>
-                                <label for="emailForm" className="form-label">Email</label>
+                                <label htmlFor="emailForm" className="form-label">Email</label>
                                 <input  className="form-control" 
                                         type="text" 
                                         placeholder="Enter Email" 
@@ -59,7 +61,7 @@ export const AddContact = () => {
                                         onChange={handleChange}/>    
                             </div>
                             <div>
-                                <label for="phoneForm" className="form-label">Phone</label>
+                                <label htmlFor="phoneForm" className="form-label">Phone</label>
                                 <input  className="form-control" 
                                         type="text" 
                                         placeholder="Phone" 
@@ -67,7 +69,7 @@ export const AddContact = () => {
                                         onChange={handleChange} />    
                             </div>
                             <div>
-                                <label for="addressForm" className="form-label">Address</label>
+                                <label htmlFor="addressForm" className="form-label">Address</label>
                                 <input  className="form-control" 
                                         type="text" 
                                         placeholder="Address" 
@@ -76,8 +78,8 @@ export const AddContact = () => {
                             </div>
                             <br />
 
-                            <button type="button" className="btn btn-primary col-12" onClick={handleSubmit}>Save</button>
-                            <NavLink className={({ isActive }) => isActive ? "nav-link text-danger" : "nav-link"} to="/Contact">Go Back to Contacts</NavLink>
+                            <button type="submit" className="btn btn-primary col-12">Save</button>
+                            <NavLink className={({ isActive }) => isActive ? "nav-link text-danger" : "nav-link"} to="/contact">Go Back to Contacts</NavLink>
 
                         </form>
                     </div>
@@ -86,10 +88,5 @@ export const AddContact = () => {
     )
     
 };
-
-/* 
-    1.- Tomar los datos del formulario (handleChange) **Se guarda en el estado**
-    2.-
-*/
 
 export default AddContact;

@@ -19,10 +19,10 @@ const Navbar = () => {
                                 to="/Home">Home</NavLink>
                         </li>
                         <li className="nav-item">
-                            <NavLink className={({ isActive }) => isActive ? "nav-link text-danger" : "nav-link"} to="/Contact">Contact</NavLink>
+                            <NavLink className={({ isActive }) => isActive ? "nav-link text-danger" : "nav-link"} to="/contact">Contact</NavLink>
                         </li>
                         <li className="nav-item">
-                            <NavLink className={({ isActive }) => isActive ? "nav-link text-danger" : "nav-link"} to="/AddContact">Add a New Contact</NavLink>
+                            <NavLink className={({ isActive }) => isActive ? "nav-link text-danger" : "nav-link"} to="/addcontact">Add a New Contact</NavLink>
                         </li>
                     </ul>
                 </div>
