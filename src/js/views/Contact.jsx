@@ -37,11 +37,17 @@ export const Contact = () => {
                             </div>
                             <div className="col-md-8">
                                 <div className="card-body">
-                                    <h5 className="card-title">Full Name: {contact.name}</h5>
+                                    <div className="d-flex justify-content-around">
+                                        <h5 className="card-title">Full Name: {contact.name}</h5>
+                                        <div className="justify-content-end">
+                                            <button type="submit" className="btn"><i className="far fa-edit"></i></button>
+                                            <button type="submit" className="btn"><i className="fas fa-window-close"></i></button>
+                                        </div>
+                                    </div>
                                     <hr />
-                                    <p className="card-text">Phone Number: {contact.phone}</p>
-                                    <p className="card-text">Email: {contact.email}</p>
-                                    <p className="card-text">Address: {contact.address}</p>
+                                    <p className="card-text"><b>Phone Number</b>: {contact.phone}</p>
+                                    <p className="card-text"><b>Email:</b> {contact.email}</p>
+                                    <p className="card-text"><b>Address:</b> {contact.address}</p>
                                 </div>
                             </div>
                         </div>

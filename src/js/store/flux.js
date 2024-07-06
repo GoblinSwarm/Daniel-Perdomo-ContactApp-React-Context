@@ -63,6 +63,8 @@ const getState = ({ getStore, getActions, setStore }) => {
 					console.log(error, "....This isnt working out!")
 				}
 			}
+			//updateContact, deleteContact;
+			
 		}
 	};
 };
