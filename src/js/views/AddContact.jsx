@@ -32,8 +32,7 @@ export const AddContact = () => {
         // Call the action to save the contact
         event.preventDefault();
         await actions.createContact(contact);        
-        
-        
+        setContact(initialContact);
     }
 
 
@@ -50,6 +49,7 @@ export const AddContact = () => {
                                         type="text" 
                                         placeholder="Full Name" 
                                         name="name"
+                                        value={contact.name}
                                         onChange={handleChange}/>
                             </div>
                             <div>
@@ -58,6 +58,7 @@ export const AddContact = () => {
                                         type="text" 
                                         placeholder="Enter Email" 
                                         name="email"
+                                        value={contact.email}
                                         onChange={handleChange}/>    
                             </div>
                             <div>
@@ -66,6 +67,7 @@ export const AddContact = () => {
                                         type="text" 
                                         placeholder="Phone" 
                                         name="phone"
+                                        value={contact.phone}
                                         onChange={handleChange} />    
                             </div>
                             <div>
@@ -74,6 +76,7 @@ export const AddContact = () => {
                                         type="text" 
                                         placeholder="Address" 
                                         name="address" 
+                                        value={contact.address}
                                         onChange={handleChange}/>    
                             </div>
                             <br />
