@@ -70,7 +70,7 @@ const getState = ({ getStore, getActions, setStore }) => {
 						},
 					});
 				if(response.ok){
-					console.log("Contact Deleted")
+					console.log(`Contact with id: ${id}, has been deleted`)
 					actions().getAllContacts();
 				}
 				

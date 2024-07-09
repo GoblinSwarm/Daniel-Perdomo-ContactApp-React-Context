@@ -21,6 +21,10 @@ export const Contact = () => {
         actions.getAllContacts();
     }, [])
 
+    const handleDelete = async (event) => {
+        // Call the action to save the contact
+        await actions.deleteContact(id);        
+    }
 
     return (
             <div>
@@ -40,8 +44,8 @@ export const Contact = () => {
                                     <div className="d-flex justify-content-around">
                                         <h5 className="card-title">Full Name: {contact.name}</h5>
                                         <div className="justify-content-end">
-                                            <button type="submit" className="btn"><i className="far fa-edit"></i></button>
-                                            <button type="submit" className="btn"><i className="fas fa-window-close"></i></button>
+                                            <button className="btn-edit"><i className="far fa-edit"></i></button>
+                                            <button className="btn-delete" onClick={() => handleDelete(contact.id)}><i className="fas fa-window-close"></i></button>
                                         </div>
                                     </div>
                                     <hr />
