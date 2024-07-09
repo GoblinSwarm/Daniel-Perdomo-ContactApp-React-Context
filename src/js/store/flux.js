@@ -35,7 +35,7 @@ const getState = ({ getStore, getActions, setStore }) => {
 						method: "POST"
 					})
 				if(response.ok){
-					getAllContacts();
+					getActions().getAllContacts();
 				}} catch(error) {
 					console.log(`Error en la creacion de la agenda: ${error}`)
 				}
@@ -52,7 +52,7 @@ const getState = ({ getStore, getActions, setStore }) => {
 					})
 
 				if(response.ok) {
-					getAllContacts();
+					getActions().getAllContacts();
 				} else {
 					console.log("Failed to create contact, damn boy!", response.statusText);
 				}
@@ -70,18 +70,15 @@ const getState = ({ getStore, getActions, setStore }) => {
 				if(response.ok){
 					console.log(`Contact with id: ${id}, has been deleted`)
 					//Error al usar actions aca por algun motivo
-					getAllContacts();
-
+					getActions().getAllContacts();
 				}
 				
 				} catch(error) {
 					console.error("Failed to delete contact:", error)
 				}
 			},
-
-
-
-			//updateContact, deleteContact;
+			
+			//updateContact
 			
 		}
 	};
