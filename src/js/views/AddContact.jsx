@@ -35,8 +35,6 @@ export const AddContact = () => {
         setContact(initialContact);
     }
 
-
-
     return (
             <>
             <div className="row">

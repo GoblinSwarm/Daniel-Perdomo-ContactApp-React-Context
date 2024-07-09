@@ -18,15 +18,14 @@ const initialContact = {
 }
 
 export const EditContact = () => {
-    const { actions } = useContext(Context);
+    const { store, actions } = useContext(Context);
     const [ contact, setContact ] = useState(initialContact);
+    const { contacts } = store;
     const { id } = useParams();
 
     useEffect(() => {
         const fetchContact = async () => {
-            //Traigo todos los contactos y busco el contacto que estoy por editar para que se guarden en el formulario
-            const allContacts = await actions.getAllContacts();
-            const contactData = allContacts.find(contact => contact.id ===parseInt(id))
+            const contactData = contacts.find(contact => contact.id ===parseInt(id))
             if(contactData) {
                 setContact(contactData);
             }

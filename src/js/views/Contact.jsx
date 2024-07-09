@@ -1,6 +1,6 @@
 import React, { useContext } from "react";
 import { Context } from "../store/appContext";
-import { NavLink} from "react-router-dom";
+import { NavLink, useNavigate } from "react-router-dom";
 //Archivos Adicionales
 import person from "../../img/Specter.jpg";
 
@@ -9,13 +9,14 @@ import person from "../../img/Specter.jpg";
 export const Contact = () => {
     const { store, actions } = useContext(Context);
     const { contacts } = store;
+    const navigate = useNavigate();
 
     const handleDelete = async (id) => {
         // Call the action to save the contact
         await actions.deleteContact(id);        
     }
 
-    const handleEdit = async (id) => {
+    const handleEdit = (id) => {
         navigate(`/editcontact/${id}`)
     }
 
