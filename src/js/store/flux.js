@@ -52,8 +52,6 @@ const getState = ({ getStore, getActions, setStore }) => {
 					})
 
 				if(response.ok) {
-					let data = await response.json();
-					setStore(contact)
 					actions().getAllContacts();
 				} else {
 					console.log("Failed to create contact, damn boy!", response.statusText);
