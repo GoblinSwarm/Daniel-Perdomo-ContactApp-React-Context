@@ -60,7 +60,27 @@ const getState = ({ getStore, getActions, setStore }) => {
 				} catch(error) {
 					console.log(error, "....This isnt working out!")
 				}
-			}
+			},
+
+			deleteContact: async(id) =>{
+				try {
+					let response = await fetch (`${getStore().urlBase}/Daniel_Perdomo/contacts/${id}`, {
+						method: "DELETE",
+						headers: {'Content-Type' : 'application/json'
+						},
+					});
+				if(response.ok){
+					console.log("Contact Deleted")
+					actions().getAllContacts();
+				}
+				
+				} catch(error) {
+					console.error("Failed to delete contact:", error)
+				}
+			},
+
+
+
 			//updateContact, deleteContact;
 			
 		}
