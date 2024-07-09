@@ -52,7 +52,7 @@ const getState = ({ getStore, getActions, setStore }) => {
 					})
 
 				if(response.ok) {
-					actions().getAllContacts();
+					getAllContacts();
 				} else {
 					console.log("Failed to create contact, damn boy!", response.statusText);
 				}
@@ -61,17 +61,17 @@ const getState = ({ getStore, getActions, setStore }) => {
 					console.log(error, "....This isnt working out!")
 				}
 			},
-
 			deleteContact: async(id) =>{
 				try {
 					let response = await fetch (`${getStore().urlBase}/Daniel_Perdomo/contacts/${id}`, {
 						method: "DELETE",
-						headers: {'Content-Type' : 'application/json'
-						},
 					});
+
 				if(response.ok){
 					console.log(`Contact with id: ${id}, has been deleted`)
-					actions().getAllContacts();
+					//Error al usar actions aca por algun motivo
+					getAllContacts();
+
 				}
 				
 				} catch(error) {

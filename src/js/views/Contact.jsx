@@ -21,7 +21,7 @@ export const Contact = () => {
         actions.getAllContacts();
     }, [])
 
-    const handleDelete = async (event) => {
+    const handleDelete = async (id) => {
         // Call the action to save the contact
         await actions.deleteContact(id);        
     }
