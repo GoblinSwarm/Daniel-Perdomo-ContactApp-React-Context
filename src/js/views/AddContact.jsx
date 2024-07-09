@@ -18,7 +18,7 @@ const initialContact = {
 }
 
 export const AddContact = () => {
-    const { store, actions } = useContext(Context);
+    const { actions } = useContext(Context);
     const [ contact, setContact ] = useState(initialContact);
 
     const handleChange = ({ target }) => {

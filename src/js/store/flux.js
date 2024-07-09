@@ -20,7 +20,6 @@ const getState = ({ getStore, getActions, setStore }) => {
 					if(response.ok){
 						setStore({contacts: data.contacts})
 					} else {
-						console.log("se crea la agenda")
 						getActions().createAgenda();
 					}
 
@@ -68,8 +67,6 @@ const getState = ({ getStore, getActions, setStore }) => {
 					});
 
 				if(response.ok){
-					console.log(`Contact with id: ${id}, has been deleted`)
-					//Error al usar actions aca por algun motivo
 					getActions().getAllContacts();
 				}
 				
@@ -77,7 +74,7 @@ const getState = ({ getStore, getActions, setStore }) => {
 					console.error("Failed to delete contact:", error)
 				}
 			},
-			
+
 			//updateContact
 			
 		}
