@@ -12,14 +12,6 @@ const getState = ({ getStore, getActions, setStore }) => {
 			}
 		},
 		actions: {
-			getContactById: async (id) => {
-				try {
-					
-				} catch (error) {
-					console.log(`Error while bringing a contact: `${id})
-				}
-			},
-			
 			getAllContacts: async () => {
 				try {
 					let response = await fetch(`${getStore().urlBase}/Daniel_Perdomo/contacts`)
@@ -82,14 +74,24 @@ const getState = ({ getStore, getActions, setStore }) => {
 					console.error("Failed to delete contact:", error)
 				}
 			},
-			
-			
-			
-			
-			//getContactById(id)
-			//updateContact(id, contact)
-			
-			
+			updateContact: async (id, contact)  => {
+				try {
+					let response = await fetch (`${getStore().urlBase}/Daniel_Perdomo/contacts/${id}`, {
+						method: "PUT",
+						headers: {
+							"Content-Type": "application/json"
+						},
+						body: JSON.stringify(contact)
+					});
+
+				if(response.ok){
+					getActions().getAllContacts();
+				}
+				
+				} catch(error) {
+					console.error("Failed to delete contact:", error)
+				}
+			}
 		}
 	};
 };

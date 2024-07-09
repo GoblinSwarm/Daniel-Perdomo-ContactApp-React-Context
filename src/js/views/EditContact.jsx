@@ -24,8 +24,12 @@ export const EditContact = () => {
 
     useEffect(() => {
         const fetchContact = async () => {
-            const contactData = await actions.getContactById(id);
-            setContact(contactData);
+            //Traigo todos los contactos y busco el contacto que estoy por editar para que se guarden en el formulario
+            const allContacts = await actions.getAllContacts();
+            const contactData = allContacts.find(contact => contact.id ===parseInt(id))
+            if(contactData) {
+                setContact(contactData);
+            }
         };
         fetchContact();
     }, [id, actions]);
@@ -89,7 +93,7 @@ export const EditContact = () => {
                         </div>
                         <br />
 
-                        <button type="submit" className="btn btn-primary col-12">Save</button>
+                        <button type="submit" className="btn btn-primary col-12">Edit</button>
                         <NavLink className={({ isActive }) => isActive ? "nav-link text-danger" : "nav-link"} to="/contact">Go Back to Contacts</NavLink>
 
                     </form>
