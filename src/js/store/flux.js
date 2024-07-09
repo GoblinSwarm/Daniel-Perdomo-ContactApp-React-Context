@@ -89,7 +89,7 @@ const getState = ({ getStore, getActions, setStore }) => {
 				}
 				
 				} catch(error) {
-					console.error("Failed to delete contact:", error)
+					console.error("Failed to update contact:", error)
 				}
 			}
 		}
