@@ -33,10 +33,11 @@ const getState = ({ getStore, getActions, setStore }) => {
 					let response = await fetch(`${getStore().urlBase}/Daniel_Perdomo`, {
 						method: "POST"
 					})
-				if(response.ok){
-					getActions().getAllContacts();
-				}} catch(error) {
-					console.log(`Error en la creacion de la agenda: ${error}`)
+					if(response.ok){
+						getActions().getAllContacts();
+					}
+				} catch(error) {
+						console.log(`Error en la creacion de la agenda: ${error}`)
 				}
 			},
 
@@ -50,12 +51,11 @@ const getState = ({ getStore, getActions, setStore }) => {
 						body: JSON.stringify(contact)
 					})
 
-				if(response.ok) {
-					getActions().getAllContacts();
-				} else {
-					console.log("Failed to create contact, damn boy!", response.statusText);
-				}
-
+					if(response.ok) {
+						getActions().getAllContacts();
+					} else {
+						console.log("Failed to create contact, damn boy!", response.statusText);
+					}
 				} catch(error) {
 					console.log(error, "....This isnt working out!")
 				}
@@ -66,9 +66,9 @@ const getState = ({ getStore, getActions, setStore }) => {
 						method: "DELETE",
 					});
 
-				if(response.ok){
-					getActions().getAllContacts();
-				}
+					if(response.ok){
+						getActions().getAllContacts();
+					}
 				
 				} catch(error) {
 					console.error("Failed to delete contact:", error)
@@ -84,10 +84,9 @@ const getState = ({ getStore, getActions, setStore }) => {
 						body: JSON.stringify(contact)
 					});
 
-				if(response.ok){
-					getActions().getAllContacts();
-				}
-				
+					if(response.ok){
+						getActions().getAllContacts();
+					}
 				} catch(error) {
 					console.error("Failed to update contact:", error)
 				}
