@@ -1,12 +1,14 @@
-import React, { useContext, useParams } from "react";
+import React, { useContext, useEffect, useState } from "react";
+import { NavLink, useParams} from "react-router-dom";
 import { Context } from "../store/appContext";
-import { NavLink} from "react-router-dom";
 
 
 // The idea is to bring a contact (just one) 
 // Fill the data in the fields 
 // Update the old contact for the new one
 
+//getContactById(id)
+//updateContact(id, contact)
 
 const initialContact = {
     name: "",
@@ -18,6 +20,16 @@ const initialContact = {
 export const EditContact = () => {
     const { actions } = useContext(Context);
     const [ contact, setContact ] = useState(initialContact);
+    const { id } = useParams();
+
+    useEffect(() => {
+        const fetchContact = async () => {
+            const contactData = await actions.getContactById(id);
+            setContact(contactData);
+        };
+        fetchContact();
+    }, [id, actions]);
+
 
     const handleChange = ({ target }) => {
         setContact({
@@ -29,8 +41,7 @@ export const EditContact = () => {
     const handleSubmit = async (event) => {
         // Call the action to save the contact
         event.preventDefault();
-        await actions.createContact(contact);        
-        //setContact(initialContact);
+        await actions.updateContact(id, contact);        
     }
 
 

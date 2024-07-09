@@ -8,6 +8,7 @@ import Navbar from "./component/Navbar.jsx";
 import Home from "./views/Home.jsx";
 import Contact from "./views/Contact.jsx";
 import AddContact from "./views/AddContact.jsx";
+import EditContact from "./views/EditContact.jsx";
 
 import injectContext from "./store/appContext.js";
 
@@ -23,6 +24,7 @@ const Layout = () => {
 						<Route path="home" element={<Home />} />
 						<Route path="contact" element={<Contact />} />
 						<Route path="addcontact" element={<AddContact />} />
+						<Route path="/editcontact/:id" element={<EditContact />} />
 					</Routes>
 			</BrowserRouter>
 		</div>

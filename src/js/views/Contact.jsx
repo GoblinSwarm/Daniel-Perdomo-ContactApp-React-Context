@@ -1,4 +1,4 @@
-import React, { useContext, useEffect } from "react";
+import React, { useContext } from "react";
 import { Context } from "../store/appContext";
 import { NavLink} from "react-router-dom";
 //Archivos Adicionales
@@ -10,20 +10,13 @@ export const Contact = () => {
     const { store, actions } = useContext(Context);
     const { contacts } = store;
 
-    const initialContact = {
-        name: "",
-        email: "",
-        phone: "",
-        address: ""
-    }
-    
-    useEffect(() => {
-        actions.getAllContacts();
-    }, [])
-
     const handleDelete = async (id) => {
         // Call the action to save the contact
         await actions.deleteContact(id);        
+    }
+
+    const handleEdit = async (id) => {
+        navigate(`/editcontact/${id}`)
     }
 
     return (
@@ -44,7 +37,7 @@ export const Contact = () => {
                                     <div className="d-flex justify-content-around">
                                         <h5 className="card-title">Full Name: {contact.name}</h5>
                                         <div className="justify-content-end">
-                                            <button className="btn-edit"><i className="far fa-edit"></i></button>
+                                            <button className="btn-edit" onClick={() => handleEdit(contact.id)}><i className="far fa-edit"></i></button>
                                             <button className="btn-delete" onClick={() => handleDelete(contact.id)}><i className="fas fa-window-close"></i></button>
                                         </div>
                                     </div>
